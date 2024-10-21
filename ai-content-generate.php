@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: AI Content Generate – Content generator for the editor
- * Plugin URI: https://www.devofwp.com/downloads/ai-content-generate/
+ * Plugin URI: https://github.com/devofwp/ai-content-generate
  * Description: Write your content seamlessly with the AI Content Generate plugin, integrating ChatGPT into WordPress's Gutenberg editor for effortless AI-generated content creation.
  * Author: DevOfWP
  * Version: 1.0.0

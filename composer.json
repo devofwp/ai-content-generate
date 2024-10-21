@@ -1,17 +1,23 @@
 {
-    "name": "devofwp/ai-content-generate",
-    "autoload": {
-        "psr-4": {
-            "DOWP\\AiContentGenerate\\": "app/"
-        }
-    },
-    "authors": [
-        {
-            "name": "DevOfWP",
-            "email": "admin@devofwp.com"
-        }
-    ],
-    "require": {
-        "ext-json": "*"
+  "name": "devofwp/ai-content-generate",
+  "description": "AI Content Generate – Content generator for the editor",
+  "homepage": "https://github.com/devofwp/ai-content-generate",
+  "license": "GPLv3",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "DevofWP",
+      "email": "info@devofwp.com",
+      "homepage": "https://devofwp.com",
+      "role": "Developer"
     }
+  ],
+  "autoload": {
+    "psr-4": {
+      "DOWP\\AiContentGenerate\\": "app/"
+    }
+  },
+  "require": {
+    "ext-json": "*"
+  }
 }
