@@ -34,13 +34,13 @@ class BlocksController {
 
 		/*Set dependency and version*/
 		if ( file_exists( $deps_file ) ) {
-			$deps_file  = require( $deps_file );
+			$deps_file  = require $deps_file;
 			$dependency = $deps_file['dependencies'];
 			$version    = $deps_file['version'];
 		}
-		//Block editor css
+		// Block editor css.
 
-		//Main compile css and js file
+		// Main compile css and js file.
 		wp_enqueue_style( 'dowp-blocks-css', dowpAIC()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
 		wp_enqueue_script( 'dowp-blocks-js', dowpAIC()->get_assets_uri( 'blocks/main.js' ), $dependency, $version, true );
 
@@ -51,7 +51,10 @@ class BlocksController {
 			$editor_type = 'edit-site';
 		}
 
-		wp_localize_script( 'dowp-blocks-js', 'dowpParams', [
+		wp_localize_script(
+			'dowp-blocks-js',
+			'dowpParams',
+			[
 				'editor_type'     => $editor_type,
 				'nonce'           => wp_create_nonce( 'dowp_nonce' ),
 				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
@@ -59,10 +62,8 @@ class BlocksController {
 				'admin_url'       => admin_url(),
 				'plugin_url'      => AI_CONTENT_PLUGIN_URL,
 				'current_user_id' => get_current_user_id(),
-				'avatar'          => esc_url( get_avatar_url( get_current_user_id() ) )
+				'avatar'          => esc_url( get_avatar_url( get_current_user_id() ) ),
 			]
 		);
-
 	}
-
 }

@@ -72,34 +72,6 @@ if ( ! class_exists( dowpAIC::class ) ) {
 			return untrailingslashit( plugin_dir_path( AI_CONTENT_PLUGIN_FILE ) );
 		}
 
-
-		/**
-		 * Default template path
-		 *
-		 * @return string
-		 */
-		public function default_template_path() {
-			return apply_filters( 'dowp_default_template_path', untrailingslashit( plugin_dir_path( AI_CONTENT_PLUGIN_FILE ) ) );
-		}
-
-		/**
-		 * Nonce text
-		 *
-		 * @return string
-		 */
-		public static function nonceText() {
-			return 'dowp_nonce_secret';
-		}
-
-		/**
-		 * Nonce ID
-		 *
-		 * @return string
-		 */
-		public static function nonceId() {
-			return 'dowp_nonce';
-		}
-
 		/**
 		 * Get assets URI
 		 *
@@ -112,7 +84,6 @@ if ( ! class_exists( dowpAIC::class ) ) {
 
 			return trailingslashit( AI_CONTENT_PLUGIN_URL . '/assets' ) . $file;
 		}
-
 	}
 
 	/**

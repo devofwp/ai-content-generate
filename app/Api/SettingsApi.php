@@ -14,7 +14,7 @@ class SettingsApi {
 	 * Class constructor
 	 */
 	public function __construct() {
-		add_action( "rest_api_init", [ $this, 'register_post_route' ] );
+		add_action( 'rest_api_init', [ $this, 'register_post_route' ] );
 	}
 
 
@@ -24,17 +24,25 @@ class SettingsApi {
 	 * @return void
 	 */
 	public function register_post_route() {
-		register_rest_route( 'dowp/v1', 'settings', [
-			'methods'             => WP_REST_Server::READABLE,
-			'callback'            => [ $this, 'get_settings' ],
-			'permission_callback' => [ $this, 'permission_check' ]
-		] );
+		register_rest_route(
+			'dowp/v1',
+			'settings',
+			[
+				'methods'             => WP_REST_Server::READABLE,
+				'callback'            => [ $this, 'get_settings' ],
+				'permission_callback' => [ $this, 'permission_check' ],
+			]
+		);
 
-		register_rest_route( 'dowp/v1', 'settings', [
-			'methods'             => WP_REST_Server::EDITABLE,
-			'callback'            => [ $this, 'update_settings' ],
-			'permission_callback' => [ $this, 'permission_check' ]
-		] );
+		register_rest_route(
+			'dowp/v1',
+			'settings',
+			[
+				'methods'             => WP_REST_Server::EDITABLE,
+				'callback'            => [ $this, 'update_settings' ],
+				'permission_callback' => [ $this, 'permission_check' ],
+			]
+		);
 	}
 
 	/**
@@ -59,10 +67,10 @@ class SettingsApi {
 
 		if ( ! $request->get_param( 'settings' ) ) {
 			$response = [
-				'status'        => "error",
+				'status'        => 'error',
 				'error'         => 'BADREQUEST',
 				'code'          => '400',
-				'error_message' => esc_html__( 'Settings data not found.', "ai-content-generate" )
+				'error_message' => esc_html__( 'Settings data not found.', 'ai-content-generate' ),
 			];
 			wp_send_json( $response, 400 );
 		}
@@ -81,7 +89,7 @@ class SettingsApi {
 
 		$response = [
 			'success' => $success,
-			'msg'     => $message
+			'msg'     => $message,
 		];
 
 		return rest_ensure_response( $response );
@@ -93,8 +101,6 @@ class SettingsApi {
 	 * @return bool
 	 */
 	public function permission_check( WP_REST_Request $request ) {
-		//return true;
-
 		return current_user_can( 'manage_options' );
 	}
 }

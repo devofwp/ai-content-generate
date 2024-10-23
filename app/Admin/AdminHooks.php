@@ -57,5 +57,4 @@ class AdminHooks {
 			remove_all_actions( 'all_admin_notices' );
 		}
 	}
-
 }
