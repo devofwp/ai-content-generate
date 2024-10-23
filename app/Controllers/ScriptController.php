@@ -40,21 +40,21 @@ class ScriptController {
 
 		/*Fallback dependency array*/
 		$dependency = [];
-		$version = $this->version;
+		$version    = $this->version;
 
 		/*Set dependency and version*/
 		if ( file_exists( $deps_file ) ) {
-			$deps_file = require( $deps_file );
-			$dependency      = $deps_file['dependencies'];
-			$version      = $deps_file['version'];
+			$deps_file  = require( $deps_file );
+			$dependency = $deps_file['dependencies'];
+			$version    = $deps_file['version'];
 		}
 
 		wp_enqueue_style( 'ai-content-generate-admin', AI_CONTENT_PLUGIN_URL . '/assets/css/settings-admin.css', null, $this->version );
 		wp_register_script( 'ai-content-generate-admin', AI_CONTENT_PLUGIN_URL . "/assets/settings/main.js", $dependency, $version, true );
 
 		$localize_data = apply_filters( 'ai_content_listing_admin_localize_options', [
-			'nonce'        => wp_create_nonce( 'wp_rest' ),
-			'rest_root'    => esc_url_raw( rest_url() ),
+			'nonce'     => wp_create_nonce( 'wp_rest' ),
+			'rest_root' => esc_url_raw( rest_url() ),
 		] );
 
 		wp_localize_script( 'ai-content-generate-admin', 'ai_content', $localize_data );
