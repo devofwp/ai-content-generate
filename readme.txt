@@ -61,8 +61,8 @@ If the generated content doesn't meet your requirements, the plugin offers addit
 
 == 👉 Usage: ==
 
-1. Once activated, navigate to the AI Content Generate Settings.
-2. Once activated, navigate to the editor.
+1. Once activated, navigate to the AI Content Generate Settings and enter OpenAI API Secret Key.
+2. Navigate to the Gutenberg or classic editor.
 3. Click the ChatGPT button from the main top tolbar.
 4. Configure your desired settings for content generation.
 5. Click on the Green button (Bottom Arrow) to generate AI-powered content.
