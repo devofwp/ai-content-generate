@@ -18,6 +18,17 @@ class BlocksController {
 	public function __construct() {
 		$this->version = defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : AI_CONTENT_VERSION;
 		add_action( 'enqueue_block_editor_assets', [ $this, 'editor_assets' ] );
+		add_action( 'admin_enqueue_scripts', [ $this, 'editor_assets' ] );
+	}
+
+	public function is_gutenberg_page() {
+		if ( function_exists( 'get_current_screen' ) ) {
+			$screen = get_current_screen();
+
+			return $screen && method_exists( $screen, 'is_block_editor' ) && $screen->is_block_editor();
+		}
+
+		return false;
 	}
 
 	/**
@@ -25,37 +36,24 @@ class BlocksController {
 	 *
 	 * @return void
 	 */
-	public function editor_assets() {
-		$deps_file = AI_CONTENT_PLUGIN_PATH . 'assets/block/main.asset.php';
-
-		/*Fallback dependency array*/
-		$dependency = [];
-		$version    = $this->version;
-
-		/*Set dependency and version*/
-		if ( file_exists( $deps_file ) ) {
-			$deps_file  = require $deps_file;
-			$dependency = $deps_file['dependencies'];
-			$version    = $deps_file['version'];
+	public function editor_assets( $screen ) {
+		if ( 'post.php' !== $screen ) {
+			return;
 		}
+
+		$dependency = [ 'wp-components', 'wp-element', 'wp-api-fetch' ];
+
 		// Block editor css.
 
 		// Main compile css and js file.
 		wp_enqueue_style( 'dowp-blocks-css', dowpAIC()->get_assets_uri( 'blocks/main.css' ), '', $this->version );
-		wp_enqueue_script( 'dowp-blocks-js', dowpAIC()->get_assets_uri( 'blocks/main.js' ), $dependency, $version, true );
-
-		global $pagenow;
-		$editor_type = 'edit-post';
-
-		if ( 'site-editor.php' === $pagenow ) {
-			$editor_type = 'edit-site';
-		}
+		wp_enqueue_script( 'dowp-blocks-js', dowpAIC()->get_assets_uri( 'blocks/main.js' ), $dependency, $this->version, true );
 
 		wp_localize_script(
 			'dowp-blocks-js',
 			'dowpParams',
 			[
-				'editor_type'     => $editor_type,
+				'editor_type'     => $this->is_gutenberg_page() ? 'gutenberg' : 'classic',
 				'nonce'           => wp_create_nonce( 'dowp_nonce' ),
 				'ajaxurl'         => admin_url( 'admin-ajax.php' ),
 				'site_url'        => site_url(),

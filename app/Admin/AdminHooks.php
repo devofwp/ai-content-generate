@@ -13,6 +13,14 @@ class AdminHooks {
 	public function __construct() {
 		add_action( 'admin_menu', [ __CLASS__, 'register_menu' ] );
 		add_action( 'in_admin_header', [ __CLASS__, 'remove_all_notices' ], 9999 );
+		add_action( 'edit_form_after_title', [ __CLASS__, 'chatgpt_add_button' ] );
+	}
+
+	public static function chatgpt_add_button() {
+		//echo '<button id="dowp-ai-content-generate-btn" class="button button-primary" style="margin-top: 10px;">ChatGPT</button>';
+        ?>
+            <div class="edit-post-header__toolbar"></div>
+            <?php
 	}
 
 	/**
@@ -39,9 +47,9 @@ class AdminHooks {
 	 */
 	public static function ai_content_settings() {
 		?>
-		<div class="wrap ai-content-generate-wrap">
-			<div id="ai-content-generate-app"></div>
-		</div>
+        <div class="wrap ai-content-generate-wrap">
+            <div id="ai-content-generate-app"></div>
+        </div>
 		<?php
 	}
 

@@ -149,7 +149,6 @@ const OpenAIModal = (props) => {
 
 					{/*TODO: Left Sidebar*/}
 
-
 					<div className="dowp-modal-content-wrapper">
 
 

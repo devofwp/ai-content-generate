@@ -21,19 +21,69 @@ $chatgpt_primary: #1CAC78;
 $chatgpt_secondary: #0f9565;
 $light_color: #e8efee;
 
+//WordPress Core
+
+.components-modal__screen-overlay {
+    animation: edit-post__fade-in-animation .2s ease-out 0s;
+    animation-fill-mode: forwards;
+    background-color: #00000059;
+    bottom: 0;
+    display: flex;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100000
+}
+.components-modal__header {
+    align-items: center;
+    border-bottom: 1px solid #0000;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    height: 72px;
+    justify-content: space-between;
+    left: 0;
+    padding: 24px 32px 8px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+.components-modal__content {
+    flex: 1;
+    margin-top: 72px;
+    overflow: auto;
+    padding: 4px 32px 32px;
+}
+
+
+//End WordPress Core
+
 .dowp-main-modal {
     width: 1200px !important;
     max-width: 100% !important;
     height: 700px !important;
     max-height: 80% !important;
+    background: #FFF;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
 
     .components-modal__header {
         background: $light_color;
         padding-top: 8px;
         height: 72px;
         .components-button {
-            //border: 1px solid transparent;
             border-radius: 50%;
+            cursor: pointer;
+            border: none;
+            background: none;
+            svg {
+                fill: currentColor;
+                outline: none;
+            }
             &:hover {
                 border-color: #F00;
                 color: #F00;
@@ -268,6 +318,7 @@ $light_color: #e8efee;
             padding-right: 44px;
             border-radius: 0;
             background: #FFF !important;
+            width: 100%;
 
             &:focus{
                 box-shadow: none;

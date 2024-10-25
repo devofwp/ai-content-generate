@@ -2,6 +2,7 @@
 const {__} = wp.i18n;
 const {render} = wp.element;
 import ImportLayout from './open-ai/ImportLayout'
+/*
 wp.domReady(function () {
     setTimeout(function () {
 
@@ -24,6 +25,7 @@ wp.domReady(function () {
         }
     }, 400);
 });
+*/
 
 wp.domReady(function () {
     setTimeout(function () {

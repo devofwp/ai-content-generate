@@ -11,6 +11,7 @@ const ImportLayout = () => {
 				className="button button-large dowp-import-btn open-ai-button"
 				title="OpenAI 2"
 				onClick={() => setOpen(true)}
+				type="button"
 			>
 				<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
 					<rect x="0.699219" y="0.767334" width="19.2366" height="19.2366" rx="3" fill="white"/>
