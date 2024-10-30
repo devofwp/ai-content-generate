@@ -44,7 +44,7 @@ If the generated content doesn't meet your requirements, the plugin offers addit
 4. **Activate** the plugin on the Plugin dashboard
 
 = 👉 Uploading in WordPress Dashboard =
-1. Firs, download the zip file from - https://wordpress.org/plugins/ai-content-generate
+1. First, download the zip file from - https://wordpress.org/plugins/ai-content-generate
 1. Navigate to the **'Add New'** in the plugins dashboard
 2. Navigate to the **'Upload'** area
 3. Select `ai-content-generate.zip` from your computer
@@ -61,18 +61,36 @@ If the generated content doesn't meet your requirements, the plugin offers addit
 
 == 👉 Usage: ==
 
-1. Once activated, navigate to the AI Content Generate Settings and enter OpenAI API Secret Key.
-2. Navigate to the Gutenberg or classic editor.
-3. Click the ChatGPT button from the main top tolbar.
-4. Configure your desired settings for content generation.
-5. Click on the Green button (Bottom Arrow) to generate AI-powered content.
-6. Review and edit the generated content as needed.
-7. Copy text or direct insert the content in the editor
+1. Once activated, navigate to the AI Content Generate Settings
+2. Generate OpenAI API Secret Key from here [here](https://platform.openai.com/api-keys) and enter the key in the settings.
+3. Navigate to the Gutenberg or classic editor.
+4. Click the ChatGPT button in the main toolbar.
+5. Configure your desired settings for content generation.
+6. Click on the Green button (Bottom Arrow) to generate AI-powered content.
+7. Review and edit the generated content as needed.
+8. Copy text or direct insert the content in the editor
+
+
+== 👉 Privacy and Data Usage Notice: ==
+
+This plugin relies on a third-party service, the OpenAI API, to provide text generation for automated responses. When using this feature, user-provided text is sent to OpenAI’s API for processing and to generate a relevant response. This interaction allows the plugin to offer enhanced functionalities based on AI-driven text completion.
+
+= Data Transmission =
+The data sent to OpenAI may include:
+* Text input required for generating responses.
+
+= External Service Details =
+For more information on how OpenAI handles data and privacy, please review their policies:
+
+* **Privacy Policy:** [https://openai.com/policies/privacy-policy](https://openai.com/policies/privacy-policy)
+* **Terms of Service:** [https://openai.com/policies/terms-of-service](https://openai.com/policies/terms-of-service)
+
+By using this plugin, you acknowledge that certain features rely on OpenAI’s services and agree to the terms and conditions of their use.
 
 
 == 👉 Credits: ==
 
-The AI Content Generate plugin is powered by ChatGPT, developed by OpenAI.
+The AI Content Generate plugin is powered by the ChatGPT model, developed by OpenAI. This integration allows the plugin to leverage advanced AI-driven text generation for enhanced content creation capabilities.
 
 
 == Frequently Asked Questions ==

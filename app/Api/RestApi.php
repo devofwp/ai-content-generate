@@ -26,7 +26,7 @@ class RestApi {
 				'methods'             => 'POST',
 				'callback'            => [ $this, 'chatgpt_callback' ],
 				'permission_callback' => function () {
-					return true;
+					return current_user_can( 'edit_posts' );
 				},
 			]
 		);
